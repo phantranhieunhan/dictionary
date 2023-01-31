@@ -36,7 +36,7 @@ class envi_Cambridge {
                 return node.innerText.trim();
         }
 
-        let base = 'https://dictionary.cambridge.org/vi/dictionary/english-vietnamese/';
+        let base = 'https://dictionary.cambridge.org/search/french-english/direct/?q=';
         let url = base + encodeURIComponent(word);
         let doc = '';
         try {
