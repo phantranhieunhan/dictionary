@@ -1,5 +1,5 @@
 /* global api */
-class envi_Cambridge {
+class envi2_Cambridge {
     constructor(options) {
         this.options = options;
         this.maxexample = 2;
@@ -10,7 +10,7 @@ class envi_Cambridge {
         let locale = await api.locale();
         if (locale.indexOf('CN') != -1) return '剑桥英汉双解(简体)';
         if (locale.indexOf('TW') != -1) return '劍橋英漢雙解(簡體)';
-        return 'Cambridge EN->VI Dictionary (SC)';
+        return 'Cambridge EN->VI2 Dictionary (SC)';
     }
 
     setOptions(options) {
@@ -36,7 +36,7 @@ class envi_Cambridge {
                 return node.innerText.trim();
         }
 
-        let base = 'https://dictionary.cambridge.org/search/english-chinese-simplified/direct/?q=';
+        let base = 'https://dictionary.cambridge.org/dictionary/english-vietnamese/';
         let url = base + encodeURIComponent(word);
         let doc = '';
         try {
@@ -47,7 +47,7 @@ class envi_Cambridge {
             return [];
         }
 
-        let entries = doc.querySelectorAll('.pr .entry-body__el') || [];
+        let entries = doc.querySelectorAll('.di-body.normal-entry-body') || [];
         for (const entry of entries) {
             let definitions = [];
             let audios = [];
